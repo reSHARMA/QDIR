@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>QDIR</title>
+  
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css'>
+
+      <style>
+      .head {
+  padding : 2%;
+  font-size : 40px;
+  
+}
+	form{
+		padding : 7%;
+	}
+    </style>
+
+  
+  
+  
+  
+
+</head>
+
+<body translate="no" >
+ <div class="main container-fluid">
+ <center class = "head"><h1>ONE PALCE FOR QUESTIONS FOR REVISION</h1></center>
+ <div class = "table-responsive" id = "table">
+ <div class="container">
+	 <center><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">Add Question</button></center>
+	 <br>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+	    <center><h1> Add a Question </h1></center>
+	    <br>
+     <form method="post" action="/submit">
+  <div class="form-group">
+    <label for="qlink">Question Link</label>
+    <input type="text" autocomplete="off" class="form-control" id="qlink" name="qlink" aria-describedby="emailHelp" placeholder="http://yourfavjudge.com/question">
+  </div>
+  <div class="form-group">
+    <label for="pri">Priority</label>
+    <input type="text" class="form-control" autocomplete="off" id="pri" name="pri" placeholder="x.xx/10">
+  </div>
+<div class="form-group">
+    <label for="diff">Difficulty</label>
+    <input type="text" class="form-control" id="diff" autocomplete="off" name="diff" placeholder="x/10">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> 
+    </div>
+  </div>
+</div>
+	 <h1>QUESTIONS</h1>
+
+      <table id="table"
+             data-toggle="table"
+             data-height="400"
+
+data-url="./data.json"
+
+               data-sort-name="pri"
+               data-sort-order="desc">
+            <thead>
+            <tr>
+                <th data-field="qlink" data-sortable="false">Question</th>
+                <th data-field="pri" data-sortable="true">Priority</th>
+                <th data-field="diff" data-sortable="true" data-sorter="priceSorter">Difficulty</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+  </div>
+  </div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"  crossorigin="anonymous"></script>
+
+
+  
+
+    <script >
+	function priceSorter(a, b) {
+		if (a > b) return 1;
+		if (a < b) return -1;
+		return 0;
+	}
+    </script>
+
+
+
+</body>
+
+</html>
+ 
